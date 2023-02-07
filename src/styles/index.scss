@@ -1,0 +1,596 @@
+//-----  font family rules  --------//
+@font-face {
+    font-family: 'Ubuntu', sans-serif;
+    src: url("../../public/assets/fonts/Ubuntu-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Ubuntu', sans-serif;
+    src: url("../../public/assets/fonts/Ubuntu-Medium.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Ubuntu', sans-serif;
+    src: url("../../public/assets/fonts/Ubuntu-Bold.ttf");
+    font-weight: 700;
+}
+
+@mixin ButtonStyle {
+    margin-top: 3em;
+    padding: 1em 2em;
+    border-radius: 0.5em;
+    border: 1px solid #2b5893;
+    background-color: #174a8b;
+    color: #e4e1e1;
+    font-weight: 700;
+    font-size: 1em;
+    line-break: 2em;
+    cursor: pointer;
+}
+
+// ---------variables  -----------//
+
+$bgColor: #eef5ff;
+$formbgColor: #ffffff;
+$headingColor: #0a2c5c;
+$lightPurple: #a89eee;
+$darkPurple: #5a47d2;
+$paragraphColor: #b7b9bd;
+
+$labelColor: #22496c;
+$stepButtonColor: #c0e0ff;
+$grayishWhite: #e8e2e2;
+
+
+
+// ---------Media query variables   ---------------//
+
+$large: 992px;
+$medium: 768px;
+$small: 480px;
+
+
+
+
+//------- global css  -----------//
+
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+
+    margin: 0;
+    padding: 0;
+
+}
+
+
+
+// ------- Left panel css ------------//
+
+
+
+.app {
+
+    background-color: $bgColor;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.multiform {
+
+    background-color: $formbgColor;
+    height: 80vh;
+    width: 70%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    .leftpanel__img__tablet {
+        display: none;
+    }
+
+    .multiform__img {
+        width: 40%;
+        height: 100%;
+        padding: 1em;
+
+        .leftpanel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+
+            .leftpanel__img {
+
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 12px;
+                max-width: 18em;
+            }
+
+
+            .leftpanel__steps {
+                position: absolute;
+                z-index: 1;
+                top: 1em;
+                left: 2em;
+                display: flex;
+                flex-direction: column;
+
+                .leftpanel__steps__step {
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    text-transform: uppercase;
+
+                    p {
+                        border: 2px solid $grayishWhite;
+                        color: $grayishWhite;
+                        height: 2em;
+                        width: 2em;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-weight: 700;
+                        // background-color: $stepButtonColor;
+                        margin-right: 1em;
+
+                    }
+
+                    div {
+                        font-family: 'Ubuntu', sans-serif;
+
+                        h5 {
+                            color: $paragraphColor;
+                            margin: 0;
+                            font-size: 13px;
+                            line-height: 1.7em;
+                            font-weight: 500;
+                        }
+
+                        h4 {
+                            margin: 0;
+                            color: $grayishWhite;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .active {
+        background-color: $stepButtonColor;
+        color: rgb(32, 32, 32) !important;
+    }
+
+    .multiform__form {
+        width: 60%;
+        height: 90%;
+        font-family: 'Ubuntu', sans-serif;
+
+
+        h1 {
+            color: $headingColor;
+            font-weight: 700;
+            text-shadow: 1px 0px #2a4b7a;
+            margin: 0;
+            margin-top: 0.8em;
+
+        }
+
+        p {
+            color: $paragraphColor;
+
+            margin: 0.6em 0 1.8em 0;
+
+        }
+
+
+        .form__one {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                label {
+                    color: $labelColor;
+
+                    font-weight: 500;
+                    font-size: 0.9em;
+                    margin-bottom: 0.5em;
+                }
+
+                input {
+                    padding: 0.8em 0.4em;
+                    border-radius: 0.5em;
+                    border: 1px solid $paragraphColor;
+                    // box-shadow: 0px 0px 1px 0px $paragraphColor;
+                    outline: none;
+                    margin-bottom: 1.5em;
+                    line-height: 1.3em;
+                    caret-color: $headingColor;
+                    color: $headingColor;
+                    font-weight: 700;
+                    font-size: 1em;
+                }
+            }
+
+            button {
+                @include ButtonStyle();
+            }
+        }
+    }
+}
+
+.form__two,
+.form__three {
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 80%;
+    height: 80%;
+
+
+
+    .form__two__cards {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 2em;
+
+
+        .card {
+            border: 1px solid $grayishWhite;
+            height: 11em;
+            padding: 1em 0.8em;
+            width: 30%;
+            border-radius: 0.8em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: start;
+
+            div {
+
+                h4 {
+                    margin: 0;
+                    color: $headingColor;
+                    font-weight: 700;
+                }
+
+                p {
+                    margin: 0;
+                    color: $paragraphColor;
+                    font-size: 0.9em;
+                    margin: 0.5em 0;
+                }
+
+                h5 {
+                    margin: 0;
+                    color: #22496c;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    .form__two__switchbox {
+        font-family: 'Ubuntu', sans-serif;
+        width: 100%;
+        background-color: #f5f8fd;
+        padding: 1em;
+        border-radius: 0.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2em;
+
+        span {
+            font-size: 14px;
+            letter-spacing: 0.6px;
+            font-weight: 700;
+
+            &:first-child {
+                color: $paragraphColor;
+            }
+
+            &:last-child {
+                color: $headingColor;
+            }
+        }
+
+        .switch {
+
+            width: 3em;
+            height: 1.5em;
+            position: relative;
+            display: inline-block;
+            margin: 0 1em;
+
+
+
+
+            input {
+                height: 0;
+                width: 0;
+                opacity: 0;
+            }
+
+            .slider {
+                background-color: $headingColor;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                border-radius: 2em;
+                -webkit-transition: .4s;
+                transition: .4s;
+                cursor: pointer;
+
+
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    background-color: $grayishWhite;
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                    height: 1em;
+                    width: 1em;
+                    border-radius: 50%;
+                    bottom: 5px;
+                    left: 4px;
+
+
+                }
+            }
+        }
+    }
+
+    .form__two__buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        padding: 0em 1em;
+        margin-top: 4em;
+
+
+        button {
+            &:first-child {
+                background-color: white;
+                color: $paragraphColor;
+                border: 0;
+                font-weight: 700;
+                font-size: 1em;
+            }
+
+            &:last-child {
+                @include ButtonStyle();
+                margin: 0;
+            }
+        }
+    }
+
+
+
+    .form__three__cards {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 1em;
+        margin-top: 3em;
+
+
+        .card {
+            border: 2px solid $grayishWhite;
+            // border: 1px solid $lightPurple;
+            border-radius: 0.5em;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+
+            .input__checkbox {
+                padding: 1em;
+
+                input {
+                    height: 1.2em;
+                    width: 1.2em;
+                    margin: 0;
+                }
+            }
+
+            .card__content {
+                flex: auto;
+
+                h4 {
+                    margin: 0;
+                    color: $headingColor;
+                    font-weight: 700;
+                    line-height: 1.8em;
+                }
+
+                p {
+                    margin: 0;
+                    color: $paragraphColor;
+                    font-size: 0.9em;
+
+                }
+            }
+
+            p {
+                color: $darkPurple;
+                font-size: 14px;
+            }
+
+        }
+    }
+}
+
+.form__three__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+
+    margin-top: 4em;
+
+
+    button {
+        &:first-child {
+            background-color: white;
+            color: $paragraphColor;
+            border: 0;
+            font-weight: 700;
+            font-size: 1em;
+        }
+
+        &:last-child {
+            @include ButtonStyle();
+            margin: 0;
+        }
+    }
+}
+
+
+
+
+//--------- css for making the switch button work in form two ---------//
+.switch {
+
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(24px);
+        -ms-transform: translateX(24px);
+        transform: translateX(24px);
+    }
+}
+
+// ---------- Media Queries -------------//
+
+@media screen and (max-width:$large) {
+    .multiform__form {
+        padding: 1em;
+
+        form {
+            width: 100% !important;
+        }
+    }
+}
+
+
+@media screen and (max-width:$medium) {
+    .app {
+        height: auto;
+    }
+
+    .multiform {
+        flex-direction: column;
+        height: 100%;
+        width: 80%;
+
+
+        .multiform__img {
+            width: 100%;
+
+
+            .leftpanel__steps {
+                flex-direction: row !important;
+                width: 100%;
+                height: 100%;
+                top: 0 !important;
+                left: 0 !important;
+                display: flex;
+                justify-content: center;
+
+
+                .leftpanel__steps__step {
+                    div {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .multiform__form {
+            width: 100%;
+        }
+
+        .leftpanel__img {
+            display: none;
+        }
+
+        .leftpanel__img__tablet {
+            display: block;
+            height: 100%;
+            width: 100%;
+            border-radius: 12px;
+
+
+        }
+
+    }
+
+    .form__two {
+        .form__two__cards {
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1em;
+
+
+            .card {
+                width: 90%;
+                flex-direction: row;
+                height: auto;
+                justify-content: flex-start;
+                gap: 1em;
+                padding: 0.8em;
+            }
+        }
+
+        .form__two__buttons {
+            button {
+                padding: 0.8em 1.2em !important;
+                font-size: 14px !important;
+            }
+        }
+
+
+    }
+
+    .form__one {
+        button {
+            padding: 0.8em 1.2em !important;
+            font-size: 14px !important;
+        }
+    }
+
+    .form__three__buttons {
+        button {
+            padding: 0.8em 1.2em !important;
+            font-size: 14px !important;
+        }
+    }
+}
